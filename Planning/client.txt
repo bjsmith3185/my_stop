@@ -1,0 +1,108 @@
+
+
+CLIENT SIDE
+
+Display:
+
+    - tab:
+        - Enter information
+        - View information
+        - View History
+
+    * Tag entered
+    * State entered
+    * VIN entered
+
+
+
+
+Mobile View
+
+    Login screen
+
+    Tabs to alternate between search / results
+
+
+
+-----------
+
+    Navbar:
+        - Name of app
+        - Users Name
+        - menu button
+            * signout
+            * History
+            * Manage Account
+            * Color settings ( day / night )
+        - SignOut
+
+    Body:
+        Container holding 2 Tabs
+
+        Search Tab:
+            * inputs for:
+                - Tag
+                - State
+            * Button for Search
+
+        Results Tab:
+            * Vehicle Description
+            * Encounter info
+
+------------
+
+Pages:
+    * Login Pages
+    * Search/Results Pages
+    * Account Page
+
+
+
+------------------
+
+Validate tag/state input
+
+    * Tag   
+        - at least 1 char, max 9 char
+        - remove whitespace
+        - trim()
+        - string
+        - toLowerCase()
+
+    * State 
+        - string 
+        - trim()
+        - remove whitespace
+        - to lowercase
+          - match a state in the array
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

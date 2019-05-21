@@ -1,0 +1,69 @@
+
+
+To create a new user
+    /api/users/new
+        * userName, password
+
+To login a user (confirm password and get token)
+    /api/users/login        
+        * post  userName, password
+
+To get users info
+    /api/users/info 
+        * get  authorization: token
+
+To access the protected route
+    /api/system
+        * post  (in header) Authorization: Bearer token
+
+To add an encounter to an existing tag collection
+    /api/encounters/(tagrecord_id)/(state)
+        * post state / data  (get state when you send tagrecord_id)
+
+to enter a new tag(record) user
+    /api/tag/new
+        * post  data
+
+To enter a state/tag search
+    /api/search
+        * get data
+
+To enter a tag ONLY search
+    /api/search/all
+
+
+To delete a user    
+    /api/users/remove/(id)
+    * delete 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,142 @@
+
+
+.navbar-area {
+  width: 100%;
+
+  max-width: 800px;
+  
+  height: 63px;
+  background-color: lightgray;
+  position: relative;
+  z-index: 2;
+
+}
+
+/* need a media query at 700px for current setup */
+.navbar-dropdown {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+  margin-left: 5%;
+  cursor: pointer;
+  z-index: 3;
+ }
+
+.navbar-menu-button {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.navbar-center-div {
+  width: 100%;
+
+  max-width: 800px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: rgb(228, 107, 107); */
+}
+
+/* need a media query at 700px for current setup */
+.navbar-logout-area {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 30px;
+  margin-top: 10px;
+  margin-right: 5%;
+  cursor: pointer;
+  
+}
+.navbar-logout-area {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 30px;
+  margin-top: 10px;
+  margin-right: 5%;
+  cursor: pointer;
+  
+}
+
+.navbar-logout {
+  color: red;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.navbar-logout:hover {
+  color: rgb(247, 131, 131);
+}
+
+.navbar-appname {
+  font-size: 20px;
+  font-weight: bolder;
+  color: black;
+}
+
+.navbar-username {
+  font-size: 13px;
+  font-weight: bolder;
+  color: black;
+}
+
+.navbar-userinfo {
+  line-height: 1;
+  background-color: lightgray;
+}
+
+.navbar-org {
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+  margin-right: 10px;
+
+}
+
+.navbar-code {
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+
+@media only screen and (min-width: 500px) {
+
+  .navbar-dropdown {
+    margin-left: 30px;;
+   }
+    
+  }
+
+
+@media only screen and (min-width: 800px) {
+  
+.navbar-logout-area {
+  left: 730px;
+  width: 50px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

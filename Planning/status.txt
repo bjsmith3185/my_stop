@@ -1,0 +1,292 @@
+
+4/13
+    just added the post and put routes for the Records collection.
+
+    I am using a const {} to add the data to the collection because there is no front end.
+
+    The _id's are hard coded in right now so it must be changed to perform the update (put) request.
+
+    ------------------------------------------------
+
+4/15
+
+    Rewired:
+        removed the records collection (it would be too big with state and tags)
+        replace with a collection for each state ( just nc and sc for now)
+        each state collection containg vehicle tags
+
+    Working;
+        * Adding new tag to the state collection
+        * Adding an encounter _id to a state collection ( offier notes related to a specific tag)
+        * Search by state/tag: focuses the tag search on the specified state collection
+
+        * Added a route to search all tag collections.
+            This uses a forEach() so it is better to use this only after a state/tag search returns []
+
+        * Added validation for state entered for a tag search
+
+    In process: 
+        * Validation for tag entered for a search
+            - function to remove - works
+            - need to continue with validation in file validateSearch.js 
+-----------------------------------------------------------------
+ 4/16
+
+    * Need to make all incoming search data lowercase. (Done)
+
+    * Need to validate new tag input data. (Done)
+
+    * Need to validate new Encounter data. (Done)
+
+    * Need route to delete user (Done)
+
+----------------------------------------------------------
+
+4/17
+    * Set up login page in React
+
+    * working on the set user info route. need to get the header to include the bearer token. 
+
+4/22
+    * Send back errors {} with username, password error message to client. (done)
+
+    * need validation to disable the submit button on landing page (done)
+
+    * So, im getting back a token even if the login data doesnt match.... (Fixed, added if statement)
+
+    * to persist data on refresh, (dont)
+        - save user_id to session storage.
+        - on page load, api call to set user data and set isAuthinacted to true.
+
+    * Used HOC to validate user login status to access "/home" (done)
+
+    
+
+
+    * Can I eliminate a request to the server at logon? (done)
+        _ removed the function to set user info using a token. This eliminated a request to the server.
+
+4/23
+    * Need to add some validatin for login with _id, on page refresh (done)
+
+    * Create a logout function (done)
+
+    * Added npm 'history', using this to redirect, seemed to work a lot easier (done)
+
+    * Adding inputs on client for tag/state search (done)
+
+    * Request to search for tag is working. Data is set to the store. (done)
+
+4/24
+    * Need to have the screen change to show results once a search is successful (set up this variable in the store) (done)
+
+    * Results are being displayed in the Results component (done)
+
+    * Add session storage to hold the current search and result, it will still be available on a refresh. (done)
+
+4/25
+    * Need to clear store on logout. (done)
+
+    * Trouble shoot if tag entered doesnt match a record. 
+
+4/26
+    * Added a new async function to the searchTag route. This will search all collections and return the result(s) if found.
+        ( This one was a bear....) (done)
+
+    * Add page to input data for a new encounter. (done)
+
+    * Working in the add new encounter route:
+        - Put a hard coded tag_id and state in the stop data component.
+        - Data is making its way to the server, need to check the output after encounter is added.
+        - Encounter is added to the tag collection. Need to decide what happens after an encounter is added? Go back to search page or view the newly created response? (done)
+ 
+
+    
+    
+
+4/28 
+
+    * Create a new state in the store for each view: search, result, enterData. (done)
+
+    * Set the records_id to session storage (if multiple results only after a record is selected ) (done)
+
+    - Status: new encounter data can be entered. If successful the screen will show results with the new encounter added. (done)
+
+    * Creating a new field in session storeage to hold the view data. This way the view can be changed and remain on refresh. (done)
+
+    * Create a conditional to display results or "no results to display" (done)
+
+    
+
+    
+
+4/29
+
+    * Would like to add a line in the Results component to show how many encounters are listed. (done)
+
+    * Add text area to encounter input data form (done)
+
+    * Save the data entered in the encounter for to session storage in case the page is refreshed 
+        - saving the data in the eventHandler(), need to clear the session data when submit() is clicked (done)
+        
+    * Need to create a component to display multiple results for a search without a state. (maybe when one of these results is clicked it can to to the current displayResults component)
+        - Options to consider
+            * right now the multi result is saved in session and the store. I should keep it there and let the user view the options somehow before selecting and removing the other selections. 
+                - save the multi result in another var until a selection is made? multi-lastResult?  (done)
+
+
+    Encounter Form Validation:
+            * Need to add validation on the server for encounter data (done)
+
+        * Need to add some form validation on the client in NewEncounter component. (done)
+
+
+    4/30 
+        * Should I verify the state entered in encounters form is a valid state? (done)
+
+        ** need to set the tag/state/tag_id if only one result is returned for a search without state selected. (done)
+
+        * Made the seclect state in encounters form a dropdown (done)
+
+     
+
+        
+
+    5/2
+
+        ** Need to display the city and state in the encoutners display. (done)
+            * also may have the state default to the original state of the vehicle (done)
+            * also may have the default result a warning (done)
+
+        * Should the result in encounters form be a dropdown menu? client side hard coded?  (done)  
+
+       
+
+       // planning for the UI 
+
+       * Create a landing page with background image and data box in center of page (done)
+
+       
+       
+    5/3
+        ** May create a new component to be used on the actual landing Page. That way it is easy to modify.
+
+        * Create a navbar with:
+            - menu button
+            - app name  (done)
+            - user name  (done)
+            - signout button  (done)
+
+        * Create the infoBar that will allow user to select: (done)
+            - Search
+            - Results 
+            - Enter Encounter Data 
+
+        * Begin layout for search component. (done)
+
+
+      
+    5/4 
+        ** Need to add session storeage to MultipleResults.js so it can be refreshed! (done)
+
+        
+        ** Add the length of the return array in MultipleResults.js line 50
+            - to read: Search returned (5) results from different states. (done)
+
+        * Add style to displayResults component (done)
+
+    5/5
+
+        * Add style to display results single result component. (done)
+            - style for the vehicle info (done)
+            - style for div that shows if there are encounters or not (done)
+
+            - Working on style for the encounters component. (done)
+        
+        * Begin layout for Encounters component. (done)
+
+        
+
+    5/6
+        ** navbar need z-index. now it is sticky when the page can be scrolled. (done)
+        ** also need to make the ViewBar component sticky so the user can change views without scrolling to the top. (done)
+
+        * Add hamburger icon to navbar (done)
+
+        * Clean up client side code, remove unnecessary lines (done)
+
+    5/8 
+
+        ** On SingleResults component: the state-var below the tag image need to be "north carolina" instead of nc.
+
+        * Add a populate page that will
+            - Add a new user (done)
+            - Clear various collections in the DB (done)
+
+    5/9
+
+        * Add dropdown menu. Have the button in the navbar component toggle it. (done)
+
+        * Add links to teh dropdown, search, result, enter data, logout. (done)
+
+        * Add an admin link in the dropdown to take the user to the /populate page. This link would be for testing/demo only.
+
+    5/20
+        * Add functions to dropdown links (done)
+        ** Need to add an onclick to the body to hide the dropdown menu.
+    
+    5/21
+        * Set the max-width of all components to 800px. (done)
+        * Need to center the search input fields. (done)
+
+
+TODOS Later
+
+    * Would like to create a clear history or search button maybe in the navbar, this would clear store and session storage.
+    
+    * The search all states function can return more than one result, need to set up the compoent for that. (done)
+
+     ** If the server rejects a request to add data, need to send back an error and display that error.
+
+    * Need to add some styling to Results 
+        - Change date to a readable form
+        - Add city field to vehicle data collection
+        - Add city field to encounter collection
+
+
+
+    
+    
+
+
+
+
+
+    
+
+Client Side
+    TODO:
+    - Function to determine if the token is valid: if false: redirect to login page.
+    - Design layout to enter the tag/state info
+    - Design layout to display the results
+
+        * If the state/tag search is empty
+            - error to user: is the correct state entered?
+                * Retry search with new state data
+     
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+

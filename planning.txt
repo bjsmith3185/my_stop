@@ -1,0 +1,20 @@
+
+
+Use yarn start,
+
+MongoDB = tags
+    Collections: users, encounters, ncrecords, screcords
+
+
+
+
+
+
+
+
+
+
+
+
+
+
